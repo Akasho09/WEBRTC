@@ -2,7 +2,15 @@
 WebRTC is the core/only protocol that lets you do real time media communication from inside a browser.
 
 ### WebRTC Architecture/jargon
- 
+![alt text](arch2.png)
+
+ >  In WebRTC, signaling is the process of exchanging control information between peers to establish, maintain, and terminate a communication session.
+
+> In WebRTC, the icecandidate event, triggered on an RTCPeerConnection object, signals the discovery of potential connection candidates for establishing a peer-to-peer connection.
+
+
+> chrome://webrtc-internals/
+
 #### P2P
 WebRTC is a peer to peer protocol. This means the you directly send your media over to the other person without the need of a central server
 - Both the browsers need to exchange their address before they can start talking to each other. A signaling server is used for that. 
@@ -80,4 +88,21 @@ It mixes audio/video together on the server before forwarding it.
 This means it needs to
 decode video/audio (using something like ffmpeg)
 Mix them (create a video canvas/create a single audio stream)
-Send out the merged audio stream to everyone
+Send out the merged audio stream to everyone.
+
+
+
+
+## Connecting the two sides   [STEPS]
+The steps to create a webrtc connection between 2 sides includes - 
+ 
+1. Browser 1 creates an RTCPeerConnection
+2. Browser 1 creates an offer
+3. Browser 1 sets the local description to the offer
+4. Browser 1 sends the offer to the other side through the signaling server
+Browser 2 receives the offer from the signaling server
+Browser 2 sets the remote description to the offer
+Browser 2 creates an answer
+Browser 2 sets the local description to be the answer
+Browser 2 sends the answer to the other side through the signaling server
+Browser 1 receives the answer and sets the remote description

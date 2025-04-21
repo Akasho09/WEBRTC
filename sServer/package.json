@@ -1,0 +1,17 @@
+{
+  "name": "webrtc",
+  "version": "1.0.0",
+  "description": "WebRTC is the core/only protocol that lets you do real time media communication from inside a browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "tsc -b && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/ws": "^8.18.1",
+    "ws": "^8.18.1"
+  }
+}
